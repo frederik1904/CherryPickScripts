@@ -1,9 +1,10 @@
 import configparser
 
 
-class Config():
+class Config:
     CONFIG: configparser.ConfigParser = configparser.ConfigParser()
     KEE_PASS: str = 'KeePass'
+
     def __init__(self):
         self.CONFIG.read('config.ini')
 
