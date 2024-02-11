@@ -1,11 +1,11 @@
 from pykeepass import PyKeePass
 from getpass import getpass
-from config import Config
+from Config import Config
 
 
 class KeePass:
     # Variables
-    __CONFIG: Config = Config()
+    __CONFIG: Config
     __PATH: str
     __PASSWORD: str
     __KEE_PASS_GROUP_NAME: str
@@ -16,7 +16,8 @@ class KeePass:
     __C_TITLE_TFS = 'TFS'
     __C_TITLE_TOOLKIT = 'Toolkit'
 
-    def __init__(self):
+    def __init__(self, config: Config):
+        self.__CONFIG = config
         self.__PASSWORD = getpass('Type password for keepass:')
 
         self.__PATH = self.__CONFIG.get_kee_pass_item(self.__C_PATH)
